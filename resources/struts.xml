@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.custom.i18n.resources" value="msg"/>
+	<package name="default" namespace="/" extends="json-default">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="pygman.invoice.util.interceptor.LoginInterceptor"/>
+			<interceptor name="exceptionInterceptor" class="pygman.invoice.util.interceptor.ExceptionInterceptor"/>
+			<interceptor name="authInterceptor" class="pygman.invoice.util.interceptor.AuthInterceptor"/>
+			<interceptor-stack name="systemStack">
+				<interceptor-ref name="exceptionInterceptor"/>
+				<interceptor-ref name="loginInterceptor"/>
+				<interceptor-ref name="authInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="systemStack"/>
+		<global-results>
+			<result name="loginFail" type="redirect">index.jsp</result>
+			<result name="loginSuccess">/WEB-INF/jsps/main.jsp</result>
+			<result name="list">/WEB-INF/jsps/${actionName}/list.jsp</result>
+			<result name="toList" type="redirectAction">${actionName}_list</result>
+			<result name="input">/WEB-INF/jsps/${actionName}/input.jsp</result>
+			<result name="error">/WEB-INF/jsps/error.jsp</result>
+		</global-results>
+		<action name="pages_*">
+			<result>/WEB-INF/jsps/{1}.jsp</result>
+		</action>
+		
+	</package>
+</struts>
