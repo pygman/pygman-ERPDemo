@@ -6,7 +6,7 @@
 	<constant name="struts.devMode" value="true"/>
 	<constant name="struts.ui.theme" value="simple"/>
 	<constant name="struts.custom.i18n.resources" value="msg"/>
-	<package name="default" namespace="/" extends="json-default">
+	<!-- <package name="default" namespace="/" extends="json-default">
 		<interceptors>
 			<interceptor name="loginInterceptor" class="pygman.invoice.util.interceptor.LoginInterceptor"/>
 			<interceptor name="exceptionInterceptor" class="pygman.invoice.util.interceptor.ExceptionInterceptor"/>
@@ -31,5 +31,5 @@
 			<result>/WEB-INF/jsps/{1}.jsp</result>
 		</action>
 		
-	</package>
+	</package> -->
 </struts>
