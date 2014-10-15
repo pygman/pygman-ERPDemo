@@ -6,15 +6,15 @@
 	<constant name="struts.devMode" value="true"/>
 	<constant name="struts.ui.theme" value="simple"/>
 	<constant name="struts.custom.i18n.resources" value="msg"/>
-	<!-- <package name="default" namespace="/" extends="json-default">
+	<package name="default" namespace="/" extends="json-default">
 		<interceptors>
-			<interceptor name="loginInterceptor" class="pygman.invoice.util.interceptor.LoginInterceptor"/>
+			<!-- <interceptor name="loginInterceptor" class="pygman.invoice.util.interceptor.LoginInterceptor"/>
 			<interceptor name="exceptionInterceptor" class="pygman.invoice.util.interceptor.ExceptionInterceptor"/>
-			<interceptor name="authInterceptor" class="pygman.invoice.util.interceptor.AuthInterceptor"/>
+			<interceptor name="authInterceptor" class="pygman.invoice.util.interceptor.AuthInterceptor"/> -->
 			<interceptor-stack name="systemStack">
-				<interceptor-ref name="exceptionInterceptor"/>
+				<!-- <interceptor-ref name="exceptionInterceptor"/>
 				<interceptor-ref name="loginInterceptor"/>
-				<interceptor-ref name="authInterceptor"/>
+				<interceptor-ref name="authInterceptor"/> -->
 				<interceptor-ref name="defaultStack"/>
 			</interceptor-stack>
 		</interceptors>
@@ -30,6 +30,20 @@
 		<action name="pages_*">
 			<result>/WEB-INF/jsps/{1}.jsp</result>
 		</action>
+		<action name="pages_*_*">
+			<result>/WEB-INF/jsps/{1}/{2}.jsp</result>
+		</action>
 		
-	</package> -->
+		<action name="emp_*" class="empAction" method="{1}">
+		</action>
+		<action name="dep_*" class="depAction" method="{1}">
+		</action>
+		<action name="menu_*" class="menuAction" method="{1}">
+		</action>
+		<action name="res_*" class="resAction" method="{1}">
+		</action>
+		<action name="role_*" class="roleAction" method="{1}">
+		</action>
+		
+	</package>
 </struts>

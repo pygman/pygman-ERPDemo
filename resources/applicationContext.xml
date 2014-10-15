@@ -28,9 +28,9 @@
 				<prop key="hibernate.format_sql">false</prop>
 			</props>
 		</property>
-		<!-- <property name="mappingLocations">
+		<property name="mappingLocations">
 			<value>classpath:pygman/invoice/*/*/vo/*Model.hbm.xml</value>
-		</property> -->
+		</property>
 	</bean>
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -38,4 +38,5 @@
 		<property name="username" value="root"/>
 		<property name="password" value="******"/>
 	</bean>
+	
 </beans>
