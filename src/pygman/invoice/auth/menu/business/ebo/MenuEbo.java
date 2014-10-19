@@ -23,8 +23,7 @@ public class MenuEbo implements MenuEbi{
 	}
 
 	public void delete(MenuModel mm) {
-		//加载关系
-		mm = menuDao.get(mm.getUuid());
+				mm = menuDao.get(mm.getUuid());
 		menuDao.delete(mm);
 	}
 

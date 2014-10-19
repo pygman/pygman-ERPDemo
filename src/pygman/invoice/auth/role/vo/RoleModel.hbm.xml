@@ -3,38 +3,28 @@
         '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
         'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
-    <class name="pygman.invoice.auth.role.vo.RoleModel" table="tbl_role">
-        <id name="uuid">
-            <generator class="native" />
-        </id>
-        <property name="name"/>
-        <property name="code"/>
+	<class name="pygman.invoice.auth.role.vo.RoleModel" table="tbl_role">
+		<id name="uuid">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="code" />
 
-        <!-- 关系 -->
-		<!-- 对资源多对多 -->
 		<set name="reses" table="tbl_role_res">
-			<key column="roleUuid"/>
-			<many-to-many
-				column="resUuid"
-				class="pygman.invoice.auth.res.vo.ResModel"
-				/>
+			<key column="roleUuid" />
+			<many-to-many column="resUuid"
+				class="pygman.invoice.auth.res.vo.ResModel" />
 		</set>
-		<!-- 对员工多对多 -->
 		<set name="emps" table="tbl_emp_role" inverse="true">
-			<key column="roleUuid"/>
-			<many-to-many
-				column="empUuid"
-				class="pygman.invoice.auth.emp.vo.EmpModel"
-				/>
+			<key column="roleUuid" />
+			<many-to-many column="empUuid"
+				class="pygman.invoice.auth.emp.vo.EmpModel" />
 		</set>
-		<!-- 对菜单多对多 -->
 		<set name="menus" table="tbl_role_menu">
-			<key column="roleUuid"/>
-			<many-to-many
-				column="menuUuid"
-				class="pygman.invoice.auth.menu.vo.MenuModel"
-				/>
+			<key column="roleUuid" />
+			<many-to-many column="menuUuid"
+				class="pygman.invoice.auth.menu.vo.MenuModel" />
 		</set>
-		
-    </class>
+
+	</class>
 </hibernate-mapping>

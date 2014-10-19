@@ -21,16 +21,20 @@
 </head>
 <body>
 	<s:form action="emp_login" method="post">
-		用户名:<s:textfield name="em.userName" value="admin" /><br />
-		密码：<s:textfield name="em.pwd" value="admin" /><br/>
-		验证码:<input type="text" size="9" /><img src="images/test.gif" /><br/>
-		<a href="javascript:void(0)" id="login_ok">
-			<img src="images/denglu_bg_03.gif" name="Image1" width="40" height="22" border="0"
-			onmouseover="MM_swapImage(this,'images/denglu_h_03.gif')"
+		用户名:<s:textfield name="em.userName" value="admin" />
+		<br />
+		密码：<s:textfield name="em.pwd" value="admin" />
+		<br />
+		验证码:<input type="text" size="9" />
+		<img src="images/test.gif" />
+		<br />
+		<a href="javascript:void(0)" id="login_ok"> <img
+			src="images/denglu_bg_03.gif" name="Image1" width="40" height="22"
+			border="0" onmouseover="MM_swapImage(this,'images/denglu_h_03.gif')"
 			onmouseout="MM_swapImage(this,'images/denglu_bg_03.gif')" />
 		</a>
-		<a href="#">
-			<img src="images/giveup_bg_03.gif" name="Image2" width="42" height="22" border="0"
+		<a href="#"> <img src="images/giveup_bg_03.gif" name="Image2"
+			width="42" height="22" border="0"
 			onmouseover="MM_swapImage(this,'images/giveup_h_03.gif')"
 			onmouseout="MM_swapImage(this,'images/giveup_bg_03.gif')" />
 		</a>

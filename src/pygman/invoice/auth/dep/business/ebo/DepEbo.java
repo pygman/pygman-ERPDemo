@@ -16,15 +16,10 @@ public class DepEbo implements DepEbi{
 	}
 
 	public void save(DepModel dm) {
-		//1.数据校验
-		//不允许部门名称为空
-		if(dm.getName().trim().length() == 0){
-			//出问题了，尖叫
-			//标准错误码
-			throw new AppException("INFO_DEP_FIELD_NAME_IS_EMPTY");
+						if(dm.getName().trim().length() == 0){
+									throw new AppException("INFO_DEP_FIELD_NAME_IS_EMPTY");
 		}
-		//2.逻辑校验
-		depDao.save(dm);
+				depDao.save(dm);
 	}
 
 	public void update(DepModel dm) {

@@ -8,11 +8,10 @@ import pygman.invoice.auth.role.vo.RoleQueryModel;
 import pygman.invoice.util.base.BaseDaoImpl;
 import pygman.invoice.util.base.BaseQueryModel;
 
-public class RoleImpl extends BaseDaoImpl<RoleModel> implements RoleDao{
+public class RoleImpl extends BaseDaoImpl<RoleModel> implements RoleDao {
 
-	public void doQbc(BaseQueryModel qm,DetachedCriteria dc){
-		RoleQueryModel rqm = (RoleQueryModel)qm;
-		//TODO 添加自定义查询条件
+	public void doQbc(BaseQueryModel qm, DetachedCriteria dc) {
+		RoleQueryModel rqm = (RoleQueryModel) qm;
 	}
 
 }

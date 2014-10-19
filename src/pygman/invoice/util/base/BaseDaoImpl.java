@@ -10,51 +10,49 @@ import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public abstract class BaseDaoImpl<T> extends HibernateDaoSupport {
-	//代表泛型的类型class(最终任务）
-	//如何获取泛型的class
 	private Class<T> entityClass;
-	
-	public BaseDaoImpl(){
+
+	public BaseDaoImpl() {
 		Type t = getClass().getGenericSuperclass();
 		ParameterizedType pt = (ParameterizedType) t;
-		entityClass =  (Class)pt.getActualTypeArguments()[0];
+		entityClass = (Class) pt.getActualTypeArguments()[0];
 	}
-	
+
 	public void save(T t) {
 		this.getHibernateTemplate().save(t);
 	}
-	
+
 	public void update(T t) {
 		this.getHibernateTemplate().update(t);
 	}
-	
+
 	public void delete(T t) {
 		this.getHibernateTemplate().delete(t);
 	}
-	
+
 	public T get(Serializable uuid) {
 		return this.getHibernateTemplate().get(entityClass, uuid);
 	}
 
 	public List<T> getAll() {
-		//QBC
 		DetachedCriteria dc = DetachedCriteria.forClass(entityClass);
 		return this.getHibernateTemplate().findByCriteria(dc);
 	}
 
-	public List<T> getAll(BaseQueryModel qm, Integer pageNum,Integer pageCount) {
-		DetachedCriteria dc  = DetachedCriteria.forClass(entityClass);
-		doQbc(qm,dc);
-		return this.getHibernateTemplate().findByCriteria(dc,(pageNum-1)*pageCount,pageCount);
+	public List<T> getAll(BaseQueryModel qm, Integer pageNum, Integer pageCount) {
+		DetachedCriteria dc = DetachedCriteria.forClass(entityClass);
+		doQbc(qm, dc);
+		return this.getHibernateTemplate().findByCriteria(dc,
+				(pageNum - 1) * pageCount, pageCount);
 	}
 
 	public Integer getCount(BaseQueryModel qm) {
-		DetachedCriteria dc  = DetachedCriteria.forClass(entityClass);
+		DetachedCriteria dc = DetachedCriteria.forClass(entityClass);
 		dc.setProjection(Projections.rowCount());
-		doQbc(qm,dc);
+		doQbc(qm, dc);
 		List<Long> count = this.getHibernateTemplate().findByCriteria(dc);
 		return count.get(0).intValue();
 	}
-	
-	public abstract void doQbc(BaseQueryModel qm,DetachedCriteria dc);
+
+	public abstract void doQbc(BaseQueryModel qm, DetachedCriteria dc);
 }

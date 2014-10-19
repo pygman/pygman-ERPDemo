@@ -15,8 +15,7 @@ public class MenuImpl extends BaseDaoImpl<MenuModel> implements MenuDao{
 	
 	public void doQbc(BaseQueryModel qm,DetachedCriteria dc){
 		MenuQueryModel mqm = (MenuQueryModel)qm;
-		//添加恒成立条件
-		dc.add(Restrictions.not(Restrictions.eq("uuid", MenuModel.PARENT_UUID)));
+				dc.add(Restrictions.not(Restrictions.eq("uuid", MenuModel.PARENT_UUID)));
 		if(mqm.getName()!=null && mqm.getName().trim().length()>0){
 			dc.add(Restrictions.like("name", "%"+mqm.getName().trim()+"%"));
 		}
@@ -29,13 +28,8 @@ public class MenuImpl extends BaseDaoImpl<MenuModel> implements MenuDao{
 		String hql = "from MenuModel where parent.uuid = ? or uuid = ?";
 		return this.getHibernateTemplate().find(hql,MenuModel.PARENT_UUID,MenuModel.PARENT_UUID);
 	}
-	//不使用的方法
-	public List<MenuModel> getAllByEmpUuidAndPuuidIsOne(Long uuid) {
-		//员工->角色->菜单
-		//菜单->角色->员工
-		//from MenuModel mm join mm.roles role join role.emps em
-		//MenuModel,RoleModel,EmpModel
-		String hql = "select distinct mm from MenuModel mm join mm.roles role join role.emps em where mm.parent.uuid = ? and em.uuid = ? order by mm.uuid";
+		public List<MenuModel> getAllByEmpUuidAndPuuidIsOne(Long uuid) {
+										String hql = "select distinct mm from MenuModel mm join mm.roles role join role.emps em where mm.parent.uuid = ? and em.uuid = ? order by mm.uuid";
 		return this.getHibernateTemplate().find(hql,MenuModel.PARENT_UUID,uuid);
 	}
 

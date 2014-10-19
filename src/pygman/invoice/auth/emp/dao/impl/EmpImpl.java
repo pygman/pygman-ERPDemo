@@ -34,14 +34,11 @@ public class EmpImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 		if(eqm.getLastLoginTime()!=null){
 			dc.add(Restrictions.ge("lastLoginTime", eqm.getLastLoginTime()));
 		}
-		//BUG(下限数据+1天-1毫秒)
-		//数据是否具有时区过滤性
-		if(eqm.getLastLoginTime2()!=null){
+						if(eqm.getLastLoginTime2()!=null){
 			dc.add(Restrictions.le("lastLoginTime", eqm.getLastLoginTime2()+24*60*60*1000-1));
 		}
 		if(eqm.getDm()!=null && eqm.getDm().getUuid()!=null && eqm.getDm().getUuid()!= -1){
-			//dc.add(Restrictions.eq("dm", eqm.getDm()));
-			dc.createAlias("dm", "d");
+						dc.createAlias("dm", "d");
 			dc.add(Restrictions.eq("d.uuid", eqm.getDm().getUuid()));
 		}
 	}
@@ -53,10 +50,8 @@ public class EmpImpl extends BaseDaoImpl<EmpModel> implements EmpDao{
 	}
 
 	public boolean updatePwd(String userName, String pwd, String newPwd) {
-		//使用hibernateTemplate如何执行手工编写的HQL语句
-		String hql = "update EmpModel set pwd = ? where userName = ? and pwd = ?";
-		//bulkUpdate用于执行增删改对应的HQL语句
-		int upd = this.getHibernateTemplate().bulkUpdate(hql,newPwd,userName,pwd);
+				String hql = "update EmpModel set pwd = ? where userName = ? and pwd = ?";
+				int upd = this.getHibernateTemplate().bulkUpdate(hql,newPwd,userName,pwd);
 		return upd > 0;
 	}
 

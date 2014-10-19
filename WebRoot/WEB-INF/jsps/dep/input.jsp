@@ -4,11 +4,8 @@
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript">
 	$(function(){
-		//id选择器
-		//绑定事件
-		$("#commit").click(function(){
-			//提交form:提交本页面内唯一的form
-			$("form:first").submit();
+						$("#commit").click(function(){
+						$("form:first").submit();
 		});
 	
 	});
@@ -22,8 +19,7 @@
 	<div class="content-text">
 		<div class="square-order">
 			<s:form action="dep_save" method="post">
-			<!-- 隐藏修改功能使用的uuid -->
-			<s:hidden name="dm.uuid"/>
+						<s:hidden name="dm.uuid"/>
   			<div style="border:1px solid #cecece;">
 				<table width="100%"  border="0" cellpadding="0" cellspacing="0">
 				  <tr bgcolor="#FFFFFF">
@@ -63,7 +59,5 @@
 				</div>
 			</div>
 			</s:form>
-		</div><!--"square-order"end-->
-	</div><!--"content-text"end-->
-	<div class="content-bbg"><img src="images/content_bbg.jpg" /></div>
+		</div>	</div>	<div class="content-bbg"><img src="images/content_bbg.jpg" /></div>
 </div>

@@ -23,40 +23,25 @@ public class EmpModel {
 	}
 	
 	private Long uuid;
-	//登陆用户名
-	private String userName;
-	//密码
-	private String pwd;
-	//真实姓名
-	private String name;
-	//email
-	private String email;
-	//电话
-	private String tele;
-	//性别
-	private Integer gender;
-	//地址
-	private String address;
-	//生日
-	private Long birthday;
-	//最后登录时间
-	private Long lastLoginTime;
-	//最后登录IP
-	private String lastLoginIp;
-	//登录总次数
-	private Integer loginTimes;
+		private String userName;
+		private String pwd;
+		private String name;
+		private String email;
+		private String tele;
+		private Integer gender;
+		private String address;
+		private Long birthday;
+		private Long lastLoginTime;
+		private String lastLoginIp;
+		private Integer loginTimes;
 	
 	private String birthdayView;
 	private String genderView;
 	private String lastLoginTimeView;
-	//关系
-	//对部门多对一
-	private DepModel dm;
-	//对角色多对多
-	private Set<RoleModel> roles;
+			private DepModel dm;
+		private Set<RoleModel> roles;
 	
-	//辅助字段
-	private String allRes;
+		private String allRes;
 	
 	public String getAllRes() {
 		return allRes;

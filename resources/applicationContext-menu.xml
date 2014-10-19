@@ -4,19 +4,17 @@
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd
-		">  
-	<!-- Action -->
-	<bean id="menuAction" class="pygman.invoice.auth.menu.web.MenuAction" scope="prototype">
-		<property name="menuEbi" ref="menuEbi"/>
+		">
+	<bean id="menuAction" class="pygman.invoice.auth.menu.web.MenuAction"
+		scope="prototype">
+		<property name="menuEbi" ref="menuEbi" />
 	</bean>
 
-	<!-- Ebi -->
 	<bean id="menuEbi" class="pygman.invoice.auth.menu.business.ebo.MenuEbo">
-		<property name="menuDao" ref="menuDao"/>
+		<property name="menuDao" ref="menuDao" />
 	</bean>
 
-	<!-- Dao -->
 	<bean id="menuDao" class="pygman.invoice.auth.menu.dao.impl.MenuImpl">
-		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 </beans>

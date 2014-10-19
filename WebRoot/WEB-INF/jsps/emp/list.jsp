@@ -39,7 +39,7 @@
 						<td><s:textfield name="eqm.tele" size="14"/></td>
 						<td>性&nbsp;&nbsp;&nbsp;&nbsp;别</td>
 						<td>
-							<s:select name="eqm.gender" list="@cn.itcast.invoice.auth.emp.vo.EmpModel@genderMap" headerKey="-1" headerValue="----请-选-择----" cssClass="kuan"></s:select>
+							<s:select name="eqm.gender" list="@pygman.invoice.auth.emp.vo.EmpModel@genderMap" headerKey="-1" headerValue="----请-选-择----" cssClass="kuan"></s:select>
 						</td>
 						<td width="70"><a href="emp_input.action"> <img src="images/can_b_02.gif" border="0" /> </a></td>
 					</tr>

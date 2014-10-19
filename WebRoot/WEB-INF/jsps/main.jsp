@@ -14,7 +14,8 @@
 	<a href="page_emp_changePwd.action" target="main">修改密码</a>
 	<a href="emp_logout.action">退出登录</a>
 	<br />
-	<div style="width: 164px; height: 509px; margin: overflow:hidden; float: left;">
+	<div
+		style="width: 164px; height: 509px; margin: overflow:hidden; float: left;">
 		<img src="images/left-top.gif" width="162" height="25" />
 		<%@include file="/WEB-INF/jsps/tools/menu.jsp"%>
 	</div>
