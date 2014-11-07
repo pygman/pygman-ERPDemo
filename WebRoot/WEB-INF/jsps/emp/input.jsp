@@ -74,7 +74,7 @@
 				    <tr  bgcolor="#FFFFFF">
 				      <td height="30" align="center">性&nbsp;&nbsp;&nbsp;&nbsp;别</td>
 				      <td>
-				      	<s:select name="em.gender" list="@cn.itcast.invoice.auth.emp.vo.EmpModel@genderMap" cssStyle="width:190px"></s:select>
+				      	<s:select name="em.gender" list="@pygman.invoice.auth.emp.vo.EmpModel@genderMap" cssStyle="width:190px"></s:select>
 					  </td>
 				      <td align="center">地&nbsp;&nbsp;&nbsp;&nbsp;址</td>
 				      <td>

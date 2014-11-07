@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name="pygman.invoice.invoice.goods.vo.GoodsModel" table="tbl_goods">
+        
+        
+        <id name="uuid">
+            <generator class="native" />
+        </id>
+		<property name="name"/>
+		<property name="origin"/>
+		<property name="producer"/>
+		<property name="unit"/>
+		<property name="useNum"/>
+		<property name="maxNum"/>
+		<property name="minNum"/>
+		<property name="inprice"/>
+		<property name="outprice"/>
+		<property name="inPriceView"/>
+		<property name="outPriceView"/>
+
+
+        <!-- 关系 -->
+
+    </class>
+</hibernate-mapping>

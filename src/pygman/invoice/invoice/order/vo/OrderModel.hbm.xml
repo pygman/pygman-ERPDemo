@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name="pygman.invoice.invoice.order.vo.OrderModel" table="tbl_order">
+        
+        
+        <id name="uuid">
+            <generator class="native" />
+        </id>
+		<property name="orderNum"/>
+		<property name="totalNum"/>
+		<property name="totalPrice"/>
+		<property name="createTime"/>
+		<property name="checkTime"/>
+		<property name="completeTime"/>
+		<property name="orderType"/>
+		<property name="type"/>
+		<property name="totalPriceView"/>
+		<property name="createTimeView"/>
+		<property name="checkTimeView"/>
+		<property name="completeTimeView"/>
+		<property name="orderTypeView"/>
+		<property name="typeView"/>
+		<property name="sm"/>
+		<property name="creater"/>
+		<property name="checker"/>
+		<property name="completer"/>
+		<property name="odms"/>
+
+
+        <!-- 关系 -->
+
+    </class>
+</hibernate-mapping>

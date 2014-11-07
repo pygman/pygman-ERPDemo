@@ -8,12 +8,12 @@
 	<constant name="struts.custom.i18n.resources" value="msg" />
 	<package name="default" namespace="/" extends="json-default">
 		<interceptors>
-			<!-- <interceptor name="loginInterceptor" class="pygman.invoice.util.interceptor.LoginInterceptor"/> 
+			<interceptor name="loginInterceptor" class="pygman.invoice.util.interceptor.LoginInterceptor"/> 
 				<interceptor name="exceptionInterceptor" class="pygman.invoice.util.interceptor.ExceptionInterceptor"/> 
-				<interceptor name="authInterceptor" class="pygman.invoice.util.interceptor.AuthInterceptor"/> -->
+				<interceptor name="authInterceptor" class="pygman.invoice.util.interceptor.AuthInterceptor"/>
 			<interceptor-stack name="systemStack">
-				<!-- <interceptor-ref name="exceptionInterceptor"/> <interceptor-ref 
-					name="loginInterceptor"/> <interceptor-ref name="authInterceptor"/> -->
+				<interceptor-ref name="exceptionInterceptor"/> <interceptor-ref 
+					name="loginInterceptor"/> <interceptor-ref name="authInterceptor"/>
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>

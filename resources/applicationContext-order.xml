@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		">  
+	<!-- Action -->
+	<bean id="orderAction" class="pygman.invoice.invoice.web.OrderAction" scope="prototype">
+		<property name="orderEbi" ref="orderEbi"/>
+	</bean>
+
+	<!-- Ebi -->
+	<bean id="orderEbi" class="pygman.invoice.invoice.business.ebo.OrderEbo">
+		<property name="orderDao" ref="orderDao"/>
+	</bean>
+
+	<!-- Dao -->
+	<bean id="orderDao" class="pygman.invoice.invoice.dao.impl.OrderImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>

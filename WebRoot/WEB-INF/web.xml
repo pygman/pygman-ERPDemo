@@ -8,9 +8,9 @@
   	<param-name>contextConfigLocation</param-name>
   	<param-value>classpath:applicationContext*.xml</param-value>
   </context-param>
-  <!-- <listener>
+  <listener>
   	<listener-class>pygman.invoice.util.listener.ResInitListener</listener-class>
-  </listener> -->
+  </listener>
   <filter>
   	<filter-name>openSessionInView</filter-name>
   	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
