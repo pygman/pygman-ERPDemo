@@ -3,18 +3,22 @@
         '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
         'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
-    <class name="pygman.invoice.invoice.goodsType.vo.GoodsTypeModel" table="tbl_goodsType">
-        
-        
+    <class name="pygman.invoice.invoice.goodstype.vo.GoodsTypeModel" table="tbl_goodsType">
         <id name="uuid">
             <generator class="native" />
         </id>
-		<property name="name"/>
-		<property name="sm"/>
-		<property name="goodses"/>
-
+        <property name="name"/>
 
         <!-- 关系 -->
-
+		<many-to-one 
+			name="sm"
+			column="supplierUuid"
+			class="pygman.invoice.invoice.supplier.vo.SupplierModel"
+			/>
+		<!-- 对商品一对多 -->
+		<set name="goodses">
+			<key column="goodsTypeUuid"/>
+			<one-to-many class="pygman.invoice.invoice.goods.vo.GoodsModel"/>
+		</set>
     </class>
 </hibernate-mapping>

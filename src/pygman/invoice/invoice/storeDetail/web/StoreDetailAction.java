@@ -1,13 +1,13 @@
-package pygman.invoice.invoice.storeDetail.web;
+package pygman.invoice.invoice.storedetail.web;
+
+import pygman.invoice.invoice.storedetail.business.ebi.StoreDetailEbi;
+import pygman.invoice.invoice.storedetail.vo.StoreDetailModel;
+import pygman.invoice.invoice.storedetail.vo.StoreDetailQueryModel;
+import pygman.invoice.util.base.BaseAction;
 
 import java.util.List;
 
-import pygman.invoice.invoice.storeDetail.business.ebi.StoreDetailEbi;
-import pygman.invoice.invoice.storeDetail.vo.StoreDetailModel;
-import pygman.invoice.invoice.storeDetail.vo.StoreDetailQueryModel;
-import pygman.invoice.util.base.BaseAction;
-
-public class StoreDetailAction extends BaseAction{
+public class StoreDetailAction extends BaseAction {
 	public StoreDetailModel sm = new StoreDetailModel();
 	public StoreDetailQueryModel sqm = new StoreDetailQueryModel();
 

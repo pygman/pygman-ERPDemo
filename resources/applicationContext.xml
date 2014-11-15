@@ -14,15 +14,18 @@
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/jee 
 		http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
-		">
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
+		">  
+	<!-- 注解事务驱动 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>	
+	
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+	
+	<!-- SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
@@ -31,15 +34,26 @@
 			</props>
 		</property>
 		<property name="mappingLocations">
-			<value>classpath:pygman/invoice/*/*/vo/*Model.hbm.xml</value>
+			<value>classpath:cn/itcast/invoice/*/*/vo/*Model.hbm.xml</value>
 		</property>
 	</bean>
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/erpdb" />
-		<property name="username" value="root" />
-		<property name="password" value="******" />
+	
+	<!-- DataSource -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/erpdb"/>
+		<property name="username" value="root"/>
+		<property name="password" value="root"/>
 	</bean>
-
-</beans>
+	
+	<!-- 通过服务器获取数据源 -->
+	<!-- <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/DataSource"/> -->
+	<!-- JNDI:Java Naming Director Interface -->
+	<!-- 
+	sum	:	java:comp/env/资源调用名称
+	tomcat	:完全按照该格式制作
+	jboss	:java:资源调用名称
+	weblogic:资源调用名称
+	-->
+</beans>	
+	

@@ -1,16 +1,21 @@
-package pygman.invoice.invoice.storeModel.vo;
+package pygman.invoice.invoice.store.vo;
 
-import java.util.HashMap;
-import java.util.Map;
-import pygman.invoice.util.format.FormatUtil;
+import pygman.invoice.auth.emp.vo.EmpModel;
 
-public class StoreModelModel {
-
-	
+public class StoreModel {
 	private Long uuid;
 	private String name;
 	private String address;
+	
 	private EmpModel em;
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public Long getUuid() {
 		return uuid;
@@ -28,14 +33,6 @@ public class StoreModelModel {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public EmpModel getEm() {
 		return em;
 	}
@@ -43,7 +40,5 @@ public class StoreModelModel {
 	public void setEm(EmpModel em) {
 		this.em = em;
 	}
-
-
-
+	
 }

@@ -1,13 +1,13 @@
-package pygman.invoice.invoice.orderDetail.web;
+package pygman.invoice.invoice.orderdetail.web;
+
+import pygman.invoice.invoice.orderdetail.business.ebi.OrderDetailEbi;
+import pygman.invoice.invoice.orderdetail.vo.OrderDetailModel;
+import pygman.invoice.invoice.orderdetail.vo.OrderDetailQueryModel;
+import pygman.invoice.util.base.BaseAction;
 
 import java.util.List;
 
-import pygman.invoice.invoice.orderDetail.business.ebi.OrderDetailEbi;
-import pygman.invoice.invoice.orderDetail.vo.OrderDetailModel;
-import pygman.invoice.invoice.orderDetail.vo.OrderDetailQueryModel;
-import pygman.invoice.util.base.BaseAction;
-
-public class OrderDetailAction extends BaseAction{
+public class OrderDetailAction extends BaseAction {
 	public OrderDetailModel om = new OrderDetailModel();
 	public OrderDetailQueryModel oqm = new OrderDetailQueryModel();
 
@@ -43,4 +43,30 @@ public class OrderDetailAction extends BaseAction{
 		orderDetailEbi.delete(om);
 		return TO_LIST;
 	}
+	
+	//--ajax--------------------------------
+	public OrderDetailModel getOm() {
+		return om;
+	}
+	public String ajaxGetNumAndSurplusByOdmUuid(){
+		//通过om.uuid获取订单明细中的两个数据，num,surplus
+		om = orderDetailEbi.get(om.getUuid());
+		return "ajaxGetNumAndSurplusByOdmUuid";
+	}
+	
+	//入库
+	public Integer num;
+	public Long storeUuid ;
+	public Long odmUuid;
+	public String ajaxInGoods(){
+		om = orderDetailEbi.inGoods(num,storeUuid,odmUuid,getLogin());
+		return "ajaxGetNumAndSurplusByOdmUuid";
+	}
+	
+	
 }
+
+
+
+
+

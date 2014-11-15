@@ -1,10 +1,10 @@
-package pygman.invoice.invoice.storeDetail.business.ebi;
+package pygman.invoice.invoice.storedetail.business.ebi;
 
 import org.springframework.transaction.annotation.Transactional;
+import pygman.invoice.invoice.storedetail.vo.StoreDetailModel;
+import pygman.invoice.util.base.BaseEbi;
 
-import pygman.invoice.invoice.storeDetail.vo.StoreDetailModel;
-import cn.itcast.invoice.util.base.BaseEbi;
 @Transactional
-public interface StoreDetailEbi extends BaseEbi<StoreDetailModel>{
+public interface StoreDetailEbi extends BaseEbi<StoreDetailModel> {
 
 }

@@ -1,8 +1,9 @@
-package pygman.invoice.invoice.storeOper.dao.dao;
+package pygman.invoice.invoice.storeoper.dao.dao;
 
-import pygman.invoice.invoice.storeOper.vo.StoreOperModel;
+
+import pygman.invoice.invoice.storeoper.vo.StoreOperModel;
 import pygman.invoice.util.base.BaseDao;
 
-public interface StoreOperDao extends BaseDao<StoreOperModel>{
+public interface StoreOperDao extends BaseDao<StoreOperModel> {
 
 }

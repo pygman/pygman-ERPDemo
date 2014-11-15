@@ -4,33 +4,46 @@
         'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
     <class name="pygman.invoice.invoice.order.vo.OrderModel" table="tbl_order">
-        
-        
         <id name="uuid">
             <generator class="native" />
         </id>
-		<property name="orderNum"/>
-		<property name="totalNum"/>
-		<property name="totalPrice"/>
-		<property name="createTime"/>
-		<property name="checkTime"/>
-		<property name="completeTime"/>
-		<property name="orderType"/>
-		<property name="type"/>
-		<property name="totalPriceView"/>
-		<property name="createTimeView"/>
-		<property name="checkTimeView"/>
-		<property name="completeTimeView"/>
-		<property name="orderTypeView"/>
-		<property name="typeView"/>
-		<property name="sm"/>
-		<property name="creater"/>
-		<property name="checker"/>
-		<property name="completer"/>
-		<property name="odms"/>
-
+        <property name="orderNum"/>
+        <property name="totalNum"/>
+        <property name="totalPrice"/>
+        <property name="createTime"/>
+        <property name="checkTime"/>
+        <property name="completeTime"/>
+        <property name="orderType"/>
+        <property name="type"/>
 
         <!-- 关系 -->
-
+		<!-- 对采购，审核，跟单三套多对一 -->
+		<many-to-one 
+			name="creater"
+			column="creater"
+			class="pygman.invoice.auth.emp.vo.EmpModel"
+			/>
+		<many-to-one 
+			name="checker"
+			column="checker"
+			class="pygman.invoice.auth.emp.vo.EmpModel"
+			/>
+		<many-to-one 
+			name="completer"
+			column="completer"
+			class="pygman.invoice.auth.emp.vo.EmpModel"
+			/>
+		<!-- 对供应商多对一 -->
+		<many-to-one 
+			name="sm"
+			column="supplierUuid"
+			class="pygman.invoice.invoice.supplier.vo.SupplierModel"
+			/>
+		<!-- 对订单明细一对多 -->
+		<!-- order-by属性描述的是关联对象的属性 -->
+		<set name="odms" cascade="save-update" inverse="true" order-by="uuid">
+			<key column="orderUuid"/>
+			<one-to-many class="pygman.invoice.invoice.orderdetail.vo.OrderDetailModel"/>
+		</set>
     </class>
 </hibernate-mapping>

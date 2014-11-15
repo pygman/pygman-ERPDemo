@@ -4,19 +4,21 @@
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd
-		">
-	<bean id="roleAction" class="pygman.invoice.auth.role.web.RoleAction"
-		scope="prototype">
-		<property name="roleEbi" ref="roleEbi" />
-		<property name="resEbi" ref="resEbi" />
-		<property name="menuEbi" ref="menuEbi" />
+		">  
+	<!-- Action -->
+	<bean id="roleAction" class="pygman.invoice.auth.role.web.RoleAction" scope="prototype">
+		<property name="roleEbi" ref="roleEbi"/>
+		<property name="resEbi" ref="resEbi"/>
+		<property name="menuEbi" ref="menuEbi"/>
 	</bean>
 
+	<!-- Ebi -->
 	<bean id="roleEbi" class="pygman.invoice.auth.role.business.ebo.RoleEbo">
-		<property name="roleDao" ref="roleDao" />
+		<property name="roleDao" ref="roleDao"/>
 	</bean>
 
+	<!-- Dao -->
 	<bean id="roleDao" class="pygman.invoice.auth.role.dao.impl.RoleImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 </beans>

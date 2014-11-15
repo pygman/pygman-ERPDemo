@@ -1,14 +1,14 @@
-package pygman.invoice.invoice.goodsType.business.ebo;
+package pygman.invoice.invoice.goodstype.business.ebo;
+
+import pygman.invoice.invoice.goodstype.business.ebi.GoodsTypeEbi;
+import pygman.invoice.invoice.goodstype.dao.dao.GoodsTypeDao;
+import pygman.invoice.invoice.goodstype.vo.GoodsTypeModel;
+import pygman.invoice.util.base.BaseQueryModel;
 
 import java.io.Serializable;
 import java.util.List;
 
-import pygman.invoice.invoice.goodsType.business.ebi.GoodsTypeEbi;
-import pygman.invoice.invoice.goodsType.dao.dao.GoodsTypeDao;
-import pygman.invoice.invoice.goodsType.vo.GoodsTypeModel;
-import pygman.invoice.util.base.BaseQueryModel;
-
-public class GoodsTypeEbo implements GoodsTypeEbi{
+public class GoodsTypeEbo implements GoodsTypeEbi {
 	private GoodsTypeDao goodsTypeDao;
 	public void setGoodsTypeDao(GoodsTypeDao goodsTypeDao) {
 		this.goodsTypeDao = goodsTypeDao;
@@ -40,6 +40,14 @@ public class GoodsTypeEbo implements GoodsTypeEbi{
 
 	public List<GoodsTypeModel> getAll(BaseQueryModel qm, Integer pageNum,Integer pageCount) {
 		return goodsTypeDao.getAll(qm,pageNum,pageCount);
+	}
+
+	public List<GoodsTypeModel> getAllBySupplierUuid(Long supplierUuid) {
+		return goodsTypeDao.getAllBySupplierUuid(supplierUuid);
+	}
+
+	public List<GoodsTypeModel> getAllUnionBySupplierUuid(Long uuid) {
+		return goodsTypeDao.getAllUnionBySupplierUuid(uuid);
 	}
 
 }

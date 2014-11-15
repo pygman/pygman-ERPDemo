@@ -1,8 +1,11 @@
-package pygman.invoice.invoice.storeDetail.dao.dao;
+package pygman.invoice.invoice.storedetail.dao.dao;
 
-import pygman.invoice.invoice.storeDetail.vo.StoreDetailModel;
+
+import pygman.invoice.invoice.storedetail.vo.StoreDetailModel;
 import pygman.invoice.util.base.BaseDao;
 
-public interface StoreDetailDao extends BaseDao<StoreDetailModel>{
+public interface StoreDetailDao extends BaseDao<StoreDetailModel> {
+
+	public StoreDetailModel getByStoreAndGoods(Long storeUuid, Long uuid);
 
 }

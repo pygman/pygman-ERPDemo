@@ -3,22 +3,26 @@
         '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
         'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
-    <class name="pygman.invoice.invoice.orderDetail.vo.OrderDetailModel" table="tbl_orderDetail">
-        
-        
+    <class name="pygman.invoice.invoice.orderdetail.vo.OrderDetailModel" table="tbl_orderDetail">
         <id name="uuid">
             <generator class="native" />
         </id>
-		<property name="num"/>
-		<property name="price"/>
-		<property name="surplus"/>
-		<property name="priceView"/>
-		<property name="totalPriceView"/>
-		<property name="gm"/>
-		<property name="om"/>
-
+        <property name="num"/>
+        <property name="price"/>
+        <property name="surplus"/>
 
         <!-- 关系 -->
-
+		<!-- 对商品多对一 -->
+		<many-to-one 
+			name="gm"
+			column="goodsUuid"
+			class="pygman.invoice.invoice.goods.vo.GoodsModel"
+			/>
+		<!-- 对订单多对一 -->
+		<many-to-one 
+			name="om"
+			column="orderUuid"
+			class="pygman.invoice.invoice.order.vo.OrderModel"
+			/>
     </class>
 </hibernate-mapping>

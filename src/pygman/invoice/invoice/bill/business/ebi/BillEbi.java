@@ -1,10 +1,22 @@
 package pygman.invoice.invoice.bill.business.ebi;
 
-import org.springframework.transaction.annotation.Transactional;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.List;
 
-import pygman.invoice.invoice.bill.vo.BillModel;
-import cn.itcast.invoice.util.base.BaseEbi;
+import org.springframework.transaction.annotation.Transactional;
+import pygman.invoice.invoice.bill.vo.BillQueryModel;
+import pygman.invoice.invoice.orderdetail.vo.OrderDetailModel;
+
 @Transactional
-public interface BillEbi extends BaseEbi<BillModel>{
+public interface BillEbi {
+
+	public List<Object[]> getBills(BillQueryModel bqm);
+
+	public List<OrderDetailModel> getAllBillDetail(BillQueryModel bqm);
+
+	public void writeBillPie(BillQueryModel bqm, OutputStream os);
+
+	public InputStream writeBillToExcel(BillQueryModel bqm)throws Exception;
 
 }

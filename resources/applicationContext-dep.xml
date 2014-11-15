@@ -4,17 +4,19 @@
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd
-		">
-	<bean id="depAction" class="pygman.invoice.auth.dep.web.DepAction"
-		scope="prototype">
-		<property name="depEbi" ref="depEbi" />
+		">  
+	<!-- Action -->
+	<bean id="depAction" class="pygman.invoice.auth.dep.web.DepAction" scope="prototype">
+		<property name="depEbi" ref="depEbi"/>
 	</bean>
-
+	
+	<!-- Ebi -->
 	<bean id="depEbi" class="pygman.invoice.auth.dep.business.ebo.DepEbo">
-		<property name="depDao" ref="depDao" />
+		<property name="depDao" ref="depDao"/>
 	</bean>
-
+	
+	<!-- Dao -->
 	<bean id="depDao" class="pygman.invoice.auth.dep.dao.impl.DepImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 </beans>

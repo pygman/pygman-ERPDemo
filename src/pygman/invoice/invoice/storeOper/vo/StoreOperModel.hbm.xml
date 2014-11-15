@@ -3,24 +3,34 @@
         '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
         'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
-    <class name="pygman.invoice.invoice.storeOper.vo.StoreOperModel" table="tbl_storeOper">
-        
-        
+    <class name="pygman.invoice.invoice.storeoper.vo.StoreOperModel" table="tbl_storeOper">
         <id name="uuid">
             <generator class="native" />
         </id>
-		<property name="num"/>
-		<property name="operTime"/>
-		<property name="type"/>
-		<property name="operTimeView"/>
-		<property name="typeView"/>
-		<property name="em"/>
-		<property name="sm"/>
-		<property name="gm"/>
-		<property name="odm"/>
-
+        <property name="num"/>
+        <property name="operTime"/>
+        <property name="type"/>
 
         <!-- 关系 -->
-
+		<many-to-one 
+			name="em"
+			column="empUuid"
+			class="pygman.invoice.auth.emp.vo.EmpModel"
+			/>
+		<many-to-one 
+			name="sm"
+			column="storeUuid"
+			class="pygman.invoice.invoice.store.vo.StoreModel"
+			/>
+		<many-to-one 
+			name="gm"
+			column="goodsUuid"
+			class="pygman.invoice.invoice.goods.vo.GoodsModel"
+			/>
+		<many-to-one 
+			name="odm"
+			column="orderDetailUuid"
+			class="pygman.invoice.invoice.orderdetail.vo.OrderDetailModel"
+			/>
     </class>
 </hibernate-mapping>

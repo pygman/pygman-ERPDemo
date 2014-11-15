@@ -43,6 +43,160 @@
 		</action>
 		<action name="role_*" class="roleAction" method="{1}">
 		</action>
+		<action name="res_*" class="resAction" method="{1}">
+		</action>
+
+		<!-- 菜单 -->
+		<action name="menu_*" class="menuAction" method="{1}">
+		</action>
+
+		<!-- 供应商 -->
+		<action name="supplier_*" class="supplierAction" method="{1}">
+		</action>
+
+		<!-- 商品类别 -->
+		<action name="goodsType_*" class="goodsTypeAction" method="{1}">
+			<result name="toList" type="redirectAction">goodsType_list</result>
+			<!-- 设置当前结果级为转换数据格式为json -->
+			<!-- 由于该格式是有插件中提供的，需要注意使用规则 -->
+			<!-- 修改当前action所在的package的包继承自json-default -->
+			<result name="ajaxGetAllBySupplierUuid" type="json">
+				<!-- 设置要返回的数据 -->
+				<!-- 设置返回的数据在哪里？ -->
+				<!-- 设置数据的来源位置,当前设置为action类中 -->
+				<!-- 哪些数据参与到action中的数据返回：只有get开头的方法才参与返回 -->
+				<param name="root">action</param>
+				<!-- 返回的数据量太大，需要删除一部分，只要我们使用的一部分 -->
+				<!-- 数据过滤 -->
+				<!-- 设置需要的数据 -->
+				<param name="includeProperties">
+					<!-- 需要哪些数据？ -->
+					<!-- 该格式是正则表达式 -->
+					<!-- 属性与属性见使用,分隔-->
+					<!-- 集合对象中所包含的对象的uuid属性 -->
+					gtmList\[\d+\]\.uuid,
+					<!-- 集合对象中所包含的对象的name属性 -->
+					gtmList\[\d+\]\.name
+				</param>
+				<!-- 设置不要的数据 -->
+				<!-- <param name="excludeProperties">
+                    gtmList\[\d+\]\.sm
+                </param> -->
+			</result>
+		</action>
+
+		<!-- 商品 -->
+		<action name="goods_*" class="goodsAction" method="{1}">
+		</action>
+
+		<!-- 订单 -->
+		<action name="order_*" class="orderAction" method="{1}">
+			<!-- 申请 -->
+			<result name="list">/WEB-INF/jsps/order/buy/list.jsp</result>
+			<result name="input">/WEB-INF/jsps/order/buy/input.jsp</result>
+			<result name="buyDetail">/WEB-INF/jsps/order/buy/buyDetail.jsp</result>
+
+			<!-- 审核 -->
+			<result name="checkList">/WEB-INF/jsps/order/buy/checkList.jsp</result>
+			<result name="toCheckList" type="redirectAction">order_checkList</result>
+			<result name="buyCheckDetail">/WEB-INF/jsps/order/buy/buyCheckDetail.jsp</result>
+
+			<!-- 入库 -->
+			<result name="inList">/WEB-INF/jsps/store/in/list.jsp</result>
+			<result name="inDetail">/WEB-INF/jsps/store/in/inDetail.jsp</result>
+
+
+			<!-- AJAX提交 -->
+			<result name="ajaxGetGtmAndGm" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">
+					gtmList\[\d+\]\.uuid,
+					gtmList\[\d+\]\.name,
+					gmList\[\d+\]\.uuid,
+					gmList\[\d+\]\.name,
+					<!-- 对象的属性如何映射？ -->
+					<!-- 格式：对象名.属性名 -->
+					gm\.inPriceView
+				</param>
+			</result>
+			<result name="ajaxGetGm" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">
+					gmList\[\d+\]\.uuid,
+					gmList\[\d+\]\.name,
+					gm\.inPriceView
+				</param>
+			</result>
+			<result name="ajaxGetOne" type="json">
+				<!-- root参数设置的是数据的来源 -->
+				<!-- 如果设置为一个get方法对应的名称，则数据直接来源与对应的变量 -->
+				<param name="root">gm</param>
+				<param name="includeProperties">
+					inPriceView,
+					outPriceView
+				</param>
+			</result>
+			<!--
+            <result name="******" type="json">
+                root参数设置的是数据的来源
+                如果设置为一个get方法对应的名称，则数据直接来源与对应的变量
+                如果是集合或数组对象，那么省略集合名称
+                外部得到的json数据，默认为[{},{},{}]
+                <param name="root">gmList</param>
+                <param name="includeProperties">
+                    \[\d+\]\.uuid
+                </param>
+            </result>
+             -->
+		</action>
+
+		<!-- 订单明细 -->
+		<action name="orderDetail_*" class="orderDetailAction" method="{1}">
+			<result name="ajaxGetNumAndSurplusByOdmUuid" type="json">
+				<param name="root">om</param>
+				<param name="includeProperties">
+					num,
+					surplus
+				</param>
+			</result>
+		</action>
+
+		<!-- 商品运输任务 -->
+		<action name="transport_*" class="orderAction" method="{1}">
+			<result name="list">/WEB-INF/jsps/order/transport/list.jsp</result>
+			<result name="toTransportList" type="redirectAction">transport_transportList</result>
+			<result name="assignTask">/WEB-INF/jsps/order/transport/assignTask.jsp</result>
+
+			<result name="tasks">/WEB-INF/jsps/order/transport/tasks.jsp</result>
+			<result name="toTasks" type="redirectAction">transport_tasks</result>
+			<result name="taskDetail">/WEB-INF/jsps/order/transport/taskDetail.jsp</result>
+		</action>
+
+		<!-- 仓库 -->
+		<action name="store_*" class="storeAction" method="{1}">
+		</action>
+
+		<!-- 仓库存储明细 -->
+		<!-- 仓库操作明细 -->
+
+		<!-- 仓库 -->
+		<action name="bill_*" class="billAction" method="{1}">
+			<result name="getExcelBill" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">downloadStream</param>
+				<param name="contentDisposition">attachment;filename=${xlsName}</param>
+			</result>
+			<result name="ajaxGetGoodsDetail" type="json">
+				<param name="root">odmList</param>
+				<param name="includeProperties">
+					\[\d+\]\.num,
+					\[\d+\]\.priceView,
+					\[\d+\]\.totalPriceView,
+					\[\d+\]\.om\.createTimeView,
+					\[\d+\]\.om\.orderNum
+				</param>
+			</result>
+		</action>
 
 	</package>
 </struts>

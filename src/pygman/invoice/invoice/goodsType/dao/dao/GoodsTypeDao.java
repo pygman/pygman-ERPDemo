@@ -1,8 +1,14 @@
-package pygman.invoice.invoice.goodsType.dao.dao;
+package pygman.invoice.invoice.goodstype.dao.dao;
 
-import pygman.invoice.invoice.goodsType.vo.GoodsTypeModel;
+import pygman.invoice.invoice.goodstype.vo.GoodsTypeModel;
 import pygman.invoice.util.base.BaseDao;
 
-public interface GoodsTypeDao extends BaseDao<GoodsTypeModel>{
+import java.util.List;
+
+public interface GoodsTypeDao extends BaseDao<GoodsTypeModel> {
+
+	public List<GoodsTypeModel> getAllBySupplierUuid(Long supplierUuid);
+
+	public List<GoodsTypeModel> getAllUnionBySupplierUuid(Long uuid);
 
 }

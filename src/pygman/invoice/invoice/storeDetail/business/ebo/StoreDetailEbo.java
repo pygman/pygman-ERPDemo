@@ -1,14 +1,14 @@
-package pygman.invoice.invoice.storeDetail.business.ebo;
+package pygman.invoice.invoice.storedetail.business.ebo;
+
+import pygman.invoice.invoice.storedetail.business.ebi.StoreDetailEbi;
+import pygman.invoice.invoice.storedetail.dao.dao.StoreDetailDao;
+import pygman.invoice.invoice.storedetail.vo.StoreDetailModel;
+import pygman.invoice.util.base.BaseQueryModel;
 
 import java.io.Serializable;
 import java.util.List;
 
-import pygman.invoice.invoice.storeDetail.business.ebi.StoreDetailEbi;
-import pygman.invoice.invoice.storeDetail.dao.dao.StoreDetailDao;
-import pygman.invoice.invoice.storeDetail.vo.StoreDetailModel;
-import pygman.invoice.util.base.BaseQueryModel;
-
-public class StoreDetailEbo implements StoreDetailEbi{
+public class StoreDetailEbo implements StoreDetailEbi {
 	private StoreDetailDao storeDetailDao;
 	public void setStoreDetailDao(StoreDetailDao storeDetailDao) {
 		this.storeDetailDao = storeDetailDao;

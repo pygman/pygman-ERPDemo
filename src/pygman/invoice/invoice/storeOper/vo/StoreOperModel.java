@@ -1,103 +1,100 @@
-package pygman.invoice.invoice.storeOper.vo;
+package pygman.invoice.invoice.storeoper.vo;
+
+
+import pygman.invoice.auth.emp.vo.EmpModel;
+import pygman.invoice.invoice.goods.vo.GoodsModel;
+import pygman.invoice.invoice.orderdetail.vo.OrderDetailModel;
+import pygman.invoice.invoice.store.vo.StoreModel;
+import pygman.invoice.util.format.FormatUtil;
 
 import java.util.HashMap;
 import java.util.Map;
-import pygman.invoice.util.format.FormatUtil;
 
 public class StoreOperModel {
-
+	public static final Integer STOREOPER_TYPE_OF_IN = 1;
+	public static final Integer STOREOPER_TYPE_OF_OUT = 2;
+	
+	public static final String STOREOPER_TYPE_OF_IN_VIEW = "入库";
+	public static final String STOREOPER_TYPE_OF_OUT_VIEW = "出库";
+	
+	public static final Map<Integer, String> typeMap = new HashMap<Integer, String>();
+	static{
+		typeMap.put(STOREOPER_TYPE_OF_IN, STOREOPER_TYPE_OF_IN_VIEW);
+		typeMap.put(STOREOPER_TYPE_OF_OUT, STOREOPER_TYPE_OF_OUT_VIEW);
+	}
 	
 	private Long uuid;
 	private Integer num;
+	
 	private Long operTime;
 	private Integer type;
+	
 	private String operTimeView;
 	private String typeView;
+	
 	private EmpModel em;
 	private StoreModel sm;
 	private GoodsModel gm;
 	private OrderDetailModel odm;
-
+	
 	public Long getUuid() {
 		return uuid;
 	}
-
 	public void setUuid(Long uuid) {
 		this.uuid = uuid;
 	}
-
 	public Integer getNum() {
 		return num;
 	}
-
-	public void setNum(Integer num) {
-		this.num = num;
-	}
-
-	public Long getOperTime() {
-		return operTime;
-	}
-
-	public void setOperTime(Long operTime) {
-		this.operTime = operTime;
-	}
-
-	public Integer getType() {
-		return type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
+	
 	public String getOperTimeView() {
 		return operTimeView;
 	}
-
-	public void setOperTimeView(String operTimeView) {
-		this.operTimeView = operTimeView;
-	}
-
 	public String getTypeView() {
 		return typeView;
 	}
-
-	public void setTypeView(String typeView) {
-		this.typeView = typeView;
+	public void setNum(Integer num) {
+		this.num = num;
 	}
-
+	public Long getOperTime() {
+		return operTime;
+	}
+	public void setOperTime(Long operTime) {
+		this.operTime = operTime;
+		this.operTimeView = FormatUtil.formatDate(operTime);
+	}
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+		this.typeView = typeMap.get(type);
+	}
 	public EmpModel getEm() {
 		return em;
 	}
-
 	public void setEm(EmpModel em) {
 		this.em = em;
 	}
-
 	public StoreModel getSm() {
 		return sm;
 	}
-
 	public void setSm(StoreModel sm) {
 		this.sm = sm;
 	}
-
 	public GoodsModel getGm() {
 		return gm;
 	}
-
 	public void setGm(GoodsModel gm) {
 		this.gm = gm;
 	}
-
 	public OrderDetailModel getOdm() {
 		return odm;
 	}
-
 	public void setOdm(OrderDetailModel odm) {
 		this.odm = odm;
 	}
-
-
-
+	
+	
+	
 }

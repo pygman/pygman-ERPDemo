@@ -4,21 +4,20 @@
         'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
     <class name="pygman.invoice.invoice.supplier.vo.SupplierModel" table="tbl_supplier">
-        
-        
         <id name="uuid">
             <generator class="native" />
         </id>
-		<property name="name"/>
-		<property name="address"/>
-		<property name="contact"/>
-		<property name="tele"/>
-		<property name="needs"/>
-		<property name="needsView"/>
-		<property name="gtms"/>
-
+        <property name="name"/>
+        <property name="address"/>
+        <property name="contact"/>
+        <property name="tele"/>
+        <property name="needs"/>
 
         <!-- 关系 -->
-
+		<!-- 对商品类别一对多 -->
+		<set name="gtms">
+			<key column="supplierUuid"/>
+			<one-to-many class="pygman.invoice.invoice.goodstype.vo.GoodsTypeModel"/>
+		</set>
     </class>
 </hibernate-mapping>

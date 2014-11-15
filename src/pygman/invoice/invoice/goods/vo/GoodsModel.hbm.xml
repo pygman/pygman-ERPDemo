@@ -4,25 +4,25 @@
         'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
 <hibernate-mapping>
     <class name="pygman.invoice.invoice.goods.vo.GoodsModel" table="tbl_goods">
-        
-        
         <id name="uuid">
             <generator class="native" />
         </id>
-		<property name="name"/>
-		<property name="origin"/>
-		<property name="producer"/>
-		<property name="unit"/>
-		<property name="useNum"/>
-		<property name="maxNum"/>
-		<property name="minNum"/>
-		<property name="inprice"/>
-		<property name="outprice"/>
-		<property name="inPriceView"/>
-		<property name="outPriceView"/>
-
+        <property name="name"/>
+        <property name="origin"/>
+        <property name="producer"/>
+        <property name="unit"/>
+        <property name="inPrice"/>
+        <property name="outPrice"/>
+        <property name="useNum"/>
+        <property name="maxNum"/>
+        <property name="minNum"/>
 
         <!-- 关系 -->
-
+		<!-- 对商品类别多对一 -->
+		<many-to-one 
+			name="gtm"
+			column="goodsTypeUuid"
+			class="pygman.invoice.invoice.goodstype.vo.GoodsTypeModel"
+			/>
     </class>
 </hibernate-mapping>

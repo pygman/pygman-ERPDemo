@@ -6,17 +6,19 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		">  
 	<!-- Action -->
-	<bean id="goodsAction" class="pygman.invoice.invoice.web.GoodsAction" scope="prototype">
+	<bean id="goodsAction" class="pygman.invoice.invoice.goods.web.GoodsAction" scope="prototype">
 		<property name="goodsEbi" ref="goodsEbi"/>
+		<property name="supplierEbi" ref="supplierEbi"/>
+		<property name="goodsTypeEbi" ref="goodsTypeEbi"/>
 	</bean>
 
 	<!-- Ebi -->
-	<bean id="goodsEbi" class="pygman.invoice.invoice.business.ebo.GoodsEbo">
+	<bean id="goodsEbi" class="pygman.invoice.invoice.goods.business.ebo.GoodsEbo">
 		<property name="goodsDao" ref="goodsDao"/>
 	</bean>
 
 	<!-- Dao -->
-	<bean id="goodsDao" class="pygman.invoice.invoice.dao.impl.GoodsImpl">
+	<bean id="goodsDao" class="pygman.invoice.invoice.goods.dao.impl.GoodsImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 </beans>

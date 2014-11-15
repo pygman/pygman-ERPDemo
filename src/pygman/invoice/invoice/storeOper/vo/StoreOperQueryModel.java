@@ -1,4 +1,4 @@
-package pygman.invoice.invoice.storeOper.vo;
+package pygman.invoice.invoice.storeoper.vo;
 
 import pygman.invoice.util.base.BaseQueryModel;
 

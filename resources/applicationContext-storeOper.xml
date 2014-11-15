@@ -6,17 +6,17 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		">  
 	<!-- Action -->
-	<bean id="storeOperAction" class="pygman.invoice.invoice.web.StoreOperAction" scope="prototype">
+	<bean id="storeOperAction" class="pygman.invoice.invoice.storeoper.web.StoreOperAction" scope="prototype">
 		<property name="storeOperEbi" ref="storeOperEbi"/>
 	</bean>
 
 	<!-- Ebi -->
-	<bean id="storeOperEbi" class="pygman.invoice.invoice.business.ebo.StoreOperEbo">
+	<bean id="storeOperEbi" class="pygman.invoice.invoice.storeoper.business.ebo.StoreOperEbo">
 		<property name="storeOperDao" ref="storeOperDao"/>
 	</bean>
 
 	<!-- Dao -->
-	<bean id="storeOperDao" class="pygman.invoice.invoice.dao.impl.StoreOperImpl">
+	<bean id="storeOperDao" class="pygman.invoice.invoice.storeoper.dao.impl.StoreOperImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 </beans>

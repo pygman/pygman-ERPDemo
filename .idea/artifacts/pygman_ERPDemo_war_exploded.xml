@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="pygman-ERPDemo:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/pygman_ERPDemo_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pygman-ERPDemo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="antlr-2.7.6" />
+        </element>
+      </element>
+      <element id="library" level="project" name="jdk1.8" />
+      <element id="javaee-facet-resources" facet="pygman-ERPDemo/web/Web" />
+    </root>
+  </artifact>
+</component>
